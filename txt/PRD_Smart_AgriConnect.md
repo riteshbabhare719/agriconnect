@@ -7,8 +7,8 @@
 | **Date** | 2 October 2026 |
 | **Event** | Nagpur RISE 2026, Stage 1 (Solution Submission) |
 | **Submission deadline** | 5 October 2026, 11:59 PM |
-| **Suggested category** | Open / Agri (can be mapped to an official problem statement once chosen) |
-| **Team** | [Team name and members] |
+| **Suggested category** | Open category |
+| **Team** | MADMAX |
 | **Status** | Frontend prototype complete; backend planned |
 
 ---

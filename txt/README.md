@@ -1,6 +1,6 @@
 # Smart AgriConnect — Digital Solutions for Farmers
 
-A complete, farmer-friendly frontend for an Indian agriculture platform. Built with plain **HTML5, CSS3 and vanilla JavaScript** — no frameworks — and structured so a **Flask + MySQL** backend can be dropped in later.
+A farmer-friendly frontend prototype for an Indian agriculture platform. Built with plain **HTML5, CSS3 and vanilla JavaScript** — no frameworks — and structured so a **FastAPI + MySQL** backend can be dropped in later.
 
 ## How to run it locally
 
@@ -21,7 +21,7 @@ No build step is needed — it's static HTML/CSS/JS.
 |---|---|
 | Login / Registration | Demo — accepts any valid input, stores a fake session in `localStorage` |
 | My Crops (CRUD) | Fully working with `localStorage`, ready to swap for a `/api/crops` REST endpoint |
-| Weather | Mock data in `js/weather.js`, structured for a real weather API |
+| Weather | Live data via Open-Meteo with sample fallback |
 | Market Prices | Mock data in `js/main.js` (`AGRI.mock.marketPrices`), filter/search/sort all work live |
 | AI Crop Recommendation | Rule-based demo logic — **not a real ML model** (clearly labeled in the UI) |
 | Crop Disease Detection | Upload + preview works; the "diagnosis" is a fixed demo result — **not real image AI** |
@@ -73,7 +73,7 @@ agriconnect/
 - **Crops, Marketplace, Community, Profile** all follow the same pattern: read from `localStorage` (seeded with sample data the first time), render to the DOM, and write back on every change — so refreshing the page keeps your data.
 - **Weather, Market Prices, AI Recommendation, Disease Detection, AI Assistant** use fixed mock data/logic since there's no backend yet. Each file has a comment block at the top explaining exactly which Flask endpoint would replace it.
 
-## Future Flask + MySQL integration
+## Future FastAPI + MySQL integration
 
 The frontend expects a REST API roughly shaped like this (see `AGRI.api.base` in `js/main.js`):
 
