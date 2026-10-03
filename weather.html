@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weather — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="weather">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1><span class="eyebrow-icon">🌦️</span>Weather</h1>
+    <p class="text-muted">Plan your farming activities around the forecast.</p>
+  </div>
+
+  <div class="card" id="currentWeather"></div>
+
+  <section class="section-tight">
+    <h2>5-Day Forecast</h2>
+    <div class="grid grid-4" id="forecastRow"></div>
+  </section>
+
+  <section class="section-tight" style="padding-bottom:60px;">
+    <div class="card" style="border-left:5px solid var(--sky-500);">
+      <h3>🌾 Farming Advisory</h3>
+      <p class="mb-0" id="weatherAdvisory"></p>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/weather.js"></script>
+</body>
+</html>

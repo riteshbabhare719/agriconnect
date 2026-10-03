@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Farming Assistant — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="ai-assistant">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header text-center">
+    <h1><span class="eyebrow-icon">🤖</span>Ask AgriConnect</h1>
+    <p class="text-muted">Ask any farming question — try one of the suggestions below.</p>
+  </div>
+
+  <div class="card" style="max-width:640px;margin:0 auto;padding:0;overflow:hidden;">
+    <div class="chat-window" id="chatWindow"></div>
+    <div class="chat-suggestions">
+      <button class="chip-btn">Which crop is suitable for black soil?</button>
+      <button class="chip-btn">When should I irrigate wheat?</button>
+      <button class="chip-btn">How can I control pests?</button>
+      <button class="chip-btn">What should I do if my crop leaves turn yellow?</button>
+    </div>
+    <form id="chatForm" class="chat-input-row">
+      <input type="text" id="chatInput" placeholder="Type your farming question…" required>
+      <button type="submit" class="btn btn-primary btn-inline">Send</button>
+    </form>
+  </div>
+  <p class="field-hint text-center" style="max-width:640px;margin:12px auto 60px;">Demo assistant with sample answers — not a live AI model yet.</p>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/assistant.js"></script>
+</body>
+</html>

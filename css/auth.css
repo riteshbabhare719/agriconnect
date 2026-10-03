@@ -1,0 +1,70 @@
+/* ============================================================
+   AUTH PAGES — login.html, register.html
+   ============================================================ */
+
+.auth-wrap {
+  min-height: calc(100vh - 68px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.auth-visual {
+  background: linear-gradient(180deg, var(--leaf-800) 0%, #1B3D1C 100%);
+  color: #fff;
+  padding: 60px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.auth-visual h2 { color: #fff; font-size: 1.8rem; }
+.auth-visual p { color: #CFE0CB; }
+.auth-visual .leaf-row {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  letter-spacing: 6px;
+}
+.auth-points { list-style: none; padding: 0; margin: 24px 0 0; }
+.auth-points li {
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.14);
+  color: #E9F1E6;
+}
+.auth-points li:first-child { border-top: none; }
+
+.auth-form-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+}
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+}
+.auth-card .logo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--leaf-800);
+  margin-bottom: 8px;
+}
+.auth-links-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.92rem;
+  margin: -10px 0 20px;
+}
+.auth-divider {
+  text-align: center;
+  color: var(--text-muted);
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 860px) {
+  .auth-wrap { grid-template-columns: 1fr; }
+  .auth-visual { display: none; }
+}

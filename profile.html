@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Profile — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="profile">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header flex-between flex-wrap gap-16">
+    <div>
+      <h1><span class="eyebrow-icon">👤</span><span id="profileNameHeading">Farmer</span></h1>
+      <p class="text-muted" id="profileLocHeading"></p>
+    </div>
+    <button class="btn btn-outline" id="editProfileBtn">Edit Profile</button>
+  </div>
+
+  <div class="card" id="profileView" style="max-width:680px;padding-bottom:80px;margin-bottom:60px;"></div>
+</div>
+
+<!-- Edit Profile Modal -->
+<div class="modal-overlay" id="profileEditModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeEditProfile()" aria-label="Close">✕</button>
+    <h2>Edit Profile</h2>
+    <form id="profileEditForm">
+      <div class="form-group"><label for="edit_name">Full Name</label><input type="text" id="edit_name"></div>
+      <div class="grid grid-2" style="gap:16px;">
+        <div class="form-group"><label for="edit_mobile">Mobile</label><input type="text" id="edit_mobile"></div>
+        <div class="form-group"><label for="edit_email">Email</label><input type="email" id="edit_email"></div>
+      </div>
+      <div class="grid grid-2" style="gap:16px;">
+        <div class="form-group"><label for="edit_state">State</label><input type="text" id="edit_state"></div>
+        <div class="form-group"><label for="edit_district">District</label><input type="text" id="edit_district"></div>
+      </div>
+      <div class="grid grid-2" style="gap:16px;">
+        <div class="form-group"><label for="edit_village">Village</label><input type="text" id="edit_village"></div>
+        <div class="form-group"><label for="edit_farmArea">Farm Area</label><input type="text" id="edit_farmArea"></div>
+      </div>
+      <div class="form-group"><label for="edit_mainCrops">Main Crops</label><input type="text" id="edit_mainCrops"></div>
+      <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/profile.js"></script>
+</body>
+</html>

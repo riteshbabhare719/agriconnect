@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Create Account — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="register">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="auth-wrap">
+  <div class="auth-visual">
+    <div class="leaf-row">🌾🌱🌿</div>
+    <h2>Join thousands of farmers</h2>
+    <p>Create your free AgriConnect account and get access to every service in one place.</p>
+    <ul class="auth-points">
+      <li>🆓 Free forever for farmers</li>
+      <li>📍 Local weather & mandi prices</li>
+      <li>🛒 Buy & sell on the marketplace</li>
+      <li>👥 Learn from other farmers nearby</li>
+    </ul>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-card">
+      <div class="logo-row">🌱 AgriConnect</div>
+      <h1 style="font-size:1.7rem;">Create your account</h1>
+      <p class="text-muted">Already registered? <a href="login.html">Log in</a></p>
+
+      <form id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" placeholder="e.g. Ramesh Patil">
+          <p class="field-error">Please enter your full name.</p>
+        </div>
+        <div class="grid grid-2" style="gap:16px;">
+          <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="text" id="mobile" placeholder="10-digit number">
+            <p class="field-error">Enter a valid 10-digit mobile number.</p>
+          </div>
+          <div class="form-group">
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" placeholder="you@example.com">
+            <p class="field-error">Enter a valid email address.</p>
+          </div>
+        </div>
+        <div class="grid grid-2" style="gap:16px;">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="At least 6 characters">
+            <p class="field-error">Password must be at least 6 characters.</p>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Re-enter password">
+            <p class="field-error">Passwords do not match.</p>
+          </div>
+        </div>
+        <div class="grid grid-2" style="gap:16px;">
+          <div class="form-group">
+            <label for="state">State</label>
+            <input type="text" id="state" placeholder="e.g. Maharashtra">
+            <p class="field-error">Please enter your state.</p>
+          </div>
+          <div class="form-group">
+            <label for="district">District</label>
+            <input type="text" id="district" placeholder="e.g. Nagpur">
+            <p class="field-error">Please enter your district.</p>
+          </div>
+        </div>
+        <div class="grid grid-2" style="gap:16px;">
+          <div class="form-group">
+            <label for="village">Village</label>
+            <input type="text" id="village" placeholder="e.g. Kelwad">
+            <p class="field-error">Please enter your village.</p>
+          </div>
+          <div class="form-group">
+            <label for="language">Preferred Language</label>
+            <select id="language">
+              <option value="en">English</option>
+              <option value="hi">Hindi</option>
+              <option value="mr">Marathi</option>
+              <option value="gu">Gujarati</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group checkbox-row">
+          <input type="checkbox" id="agreeTerms">
+          <label for="agreeTerms" style="font-weight:400;">I agree to the Terms &amp; Privacy Policy</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

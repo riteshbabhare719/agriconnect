@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="marketplace">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1><span class="eyebrow-icon">🛒</span>Your Cart</h1>
+  </div>
+
+  <div id="cartItems"></div>
+
+  <div class="card flex-between" style="margin-top:20px;">
+    <h3 class="mb-0">Total</h3>
+    <h2 class="mb-0" id="cartTotal">₹0</h2>
+  </div>
+
+  <div class="flex gap-16 flex-wrap" style="margin-top:20px;padding-bottom:60px;">
+    <a href="marketplace.html" class="btn btn-outline">Continue Shopping</a>
+    <button class="btn btn-primary" onclick="AGRI.toast('Checkout is a demo feature — no real order was placed.')">Checkout</button>
+  </div>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/marketplace.js"></script>
+</body>
+</html>

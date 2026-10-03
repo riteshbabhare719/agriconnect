@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farmer Community — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="community">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1><span class="eyebrow-icon">👥</span>Farmer Community</h1>
+    <p class="text-muted">Ask questions and share knowledge with other farmers.</p>
+  </div>
+
+  <div class="card">
+    <form id="createPostForm">
+      <div class="form-group">
+        <label for="postText">Share something with the community</label>
+        <textarea id="postText" rows="3" placeholder="Ask a question or share a tip…" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+  </div>
+
+  <div class="form-group" style="max-width:360px;margin-top:20px;">
+    <input type="text" id="postSearch" placeholder="🔍 Search posts…">
+  </div>
+
+  <div id="postsList" style="padding-bottom:60px;"></div>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/community.js"></script>
+</body>
+</html>

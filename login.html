@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/auth.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="login">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="auth-wrap">
+  <div class="auth-visual">
+    <div class="leaf-row">🌾🌱🌿</div>
+    <h2>Welcome back, Farmer!</h2>
+    <p>Log in to check today's weather, market prices, and manage your crops.</p>
+    <ul class="auth-points">
+      <li>🌦️ Daily weather & advisories</li>
+      <li>📈 Live mandi price updates</li>
+      <li>🌱 Track your crops in one place</li>
+      <li>🤖 Ask the AI Farming Assistant anytime</li>
+    </ul>
+  </div>
+
+  <div class="auth-form-side">
+    <div class="auth-card">
+      <div class="logo-row">🌱 AgriConnect</div>
+      <h1 style="font-size:1.7rem;">Log in to your account</h1>
+      <p class="text-muted">New here? <a href="register.html">Create an account</a></p>
+
+      <form id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginId">Mobile Number or Email</label>
+          <input type="text" id="loginId" placeholder="e.g. 9876543210">
+          <p class="field-error">Please enter your mobile number or email.</p>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter your password">
+          <p class="field-error">Password must be at least 4 characters.</p>
+        </div>
+        <div class="auth-links-row">
+          <label class="checkbox-row" style="align-items:center;"><input type="checkbox" style="width:auto;"> Remember me</label>
+          <a href="#">Forgot Password?</a>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+      </form>
+      <div class="auth-divider">or</div>
+      <a href="register.html" class="btn btn-outline btn-block">Create Account</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+</body>
+</html>

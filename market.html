@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Prices — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="market">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header">
+    <h1><span class="eyebrow-icon">📈</span>Today's Market Prices</h1>
+    <p class="text-muted">Check mandi prices before you sell your produce.</p>
+  </div>
+
+  <div class="card">
+    <div class="grid grid-4" style="gap:14px;">
+      <div class="form-group mb-0"><label for="filterState">State</label><select id="filterState"></select></div>
+      <div class="form-group mb-0"><label for="filterCrop">Crop</label><select id="filterCrop"></select></div>
+      <div class="form-group mb-0"><label for="marketSearch">Search</label><input type="text" id="marketSearch" placeholder="Search crop or market…"></div>
+      <div class="form-group mb-0"><label for="marketSort">Sort By</label>
+        <select id="marketSort">
+          <option value="">Default</option>
+          <option value="priceAsc">Price: Low to High</option>
+          <option value="priceDesc">Price: High to Low</option>
+          <option value="nameAsc">Crop Name: A-Z</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <section class="section-tight table-responsive">
+    <div class="card" style="overflow-x:auto;">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead>
+          <tr style="text-align:left;border-bottom:2px solid var(--border-soft);">
+            <th style="padding:10px;">Crop</th><th style="padding:10px;">Market</th>
+            <th style="padding:10px;">Min Price</th><th style="padding:10px;">Max Price</th><th style="padding:10px;">Avg Price</th>
+          </tr>
+        </thead>
+        <tbody id="marketTableBody"></tbody>
+      </table>
+    </div>
+    <div class="card-list" id="marketCardList"></div>
+    <div class="empty-state" id="marketEmpty" style="display:none;">
+      <span class="emoji">📉</span><p>No matching prices found. Try a different filter.</p>
+    </div>
+  </section>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/market.js"></script>
+</body>
+</html>

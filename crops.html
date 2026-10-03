@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Crops — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="crops">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header flex-between flex-wrap gap-16">
+    <div>
+      <h1><span class="eyebrow-icon">🌾</span>My Crops</h1>
+      <p class="text-muted">Track sowing dates, growth stages and harvest schedules.</p>
+    </div>
+    <button class="btn btn-primary" id="addCropBtn">+ Add New Crop</button>
+  </div>
+
+  <div class="form-group" style="max-width:360px;">
+    <input type="text" id="cropSearch" placeholder="🔍 Search your crops…">
+  </div>
+
+  <div class="grid grid-4" id="cropsGrid"></div>
+  <div class="empty-state" id="cropsEmpty" style="display:none;">
+    <span class="emoji">🌱</span>
+    <p>No crops found. Add your first crop to start tracking it.</p>
+  </div>
+</div>
+
+<!-- Add/Edit Crop Modal -->
+<div class="modal-overlay" id="cropModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeCropModal()" aria-label="Close">✕</button>
+    <h2 id="cropModalTitle">Add New Crop</h2>
+    <form id="cropForm">
+      <div class="form-group">
+        <label for="cropName">Crop Name</label>
+        <input type="text" id="cropName" placeholder="e.g. Wheat" required>
+      </div>
+      <div class="form-group">
+        <label for="cropType">Crop Type</label>
+        <select id="cropType">
+          <option>Cereal</option><option>Vegetable</option><option>Cash Crop</option>
+          <option>Fruit</option><option>Pulse</option><option>Oilseed</option>
+        </select>
+      </div>
+      <div class="grid grid-2" style="gap:16px;">
+        <div class="form-group">
+          <label for="sowDate">Sowing Date</label>
+          <input type="date" id="sowDate">
+        </div>
+        <div class="form-group">
+          <label for="harvestDate">Expected Harvest Date</label>
+          <input type="date" id="harvestDate">
+        </div>
+      </div>
+      <div class="grid grid-2" style="gap:16px;">
+        <div class="form-group">
+          <label for="cropArea">Area</label>
+          <input type="text" id="cropArea" placeholder="e.g. 2 acres">
+        </div>
+        <div class="form-group">
+          <label for="soilType">Soil Type</label>
+          <select id="soilType">
+            <option>Loamy</option><option>Clayey</option><option>Sandy Loam</option>
+            <option>Black Soil</option><option>Red Soil</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="irrigationType">Irrigation Type</label>
+        <select id="irrigationType">
+          <option>Drip</option><option>Sprinkler</option><option>Flood</option><option>Rainfed</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Save Crop</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/crops.js"></script>
+</body>
+</html>

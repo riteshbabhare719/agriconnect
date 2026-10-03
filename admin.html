@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Dashboard — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="admin">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="app-shell">
+  <aside class="app-sidebar">
+    <a href="#overview" class="active">📊 Overview</a>
+    <a href="#farmers">👨‍🌾 Farmers</a>
+    <a href="#products">🛒 Products</a>
+    <a href="#market">📈 Market Data</a>
+    <a href="#community">💬 Community</a>
+    <a href="#reports">📋 Reports</a>
+  </aside>
+
+  <main class="app-main">
+    <div id="overview">
+      <h1>Admin Dashboard</h1>
+      <p class="text-muted">Manage farmers, products, market data and community activity.</p>
+      <div class="grid grid-3" id="adminStats" style="margin-top:16px;"></div>
+    </div>
+
+    <section id="farmers" class="section-tight">
+      <h2>Farmer Management</h2>
+      <div class="card table-responsive" style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="text-align:left;border-bottom:2px solid var(--border-soft);">
+            <th style="padding:10px;">Name</th><th style="padding:10px;">Village</th>
+            <th style="padding:10px;">Crops</th><th style="padding:10px;">Status</th><th style="padding:10px;">Actions</th>
+          </tr></thead>
+          <tbody id="adminFarmersTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="products" class="section-tight">
+      <h2>Product Management</h2>
+      <div class="card table-responsive" style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;">
+          <thead><tr style="text-align:left;border-bottom:2px solid var(--border-soft);">
+            <th style="padding:10px;">Product</th><th style="padding:10px;">Category</th>
+            <th style="padding:10px;">Price</th><th style="padding:10px;">Actions</th>
+          </tr></thead>
+          <tbody id="adminProductsTable"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="market" class="section-tight">
+      <h2>Market Data</h2>
+      <div class="card">
+        <p class="text-muted">Manage mandi price entries used across the platform.</p>
+        <a href="market.html" class="btn btn-outline">Go to Market Prices</a>
+      </div>
+    </section>
+
+    <section id="community" class="section-tight">
+      <h2>Community Management</h2>
+      <div class="card">
+        <p class="text-muted">Moderate posts and comments shared by farmers.</p>
+        <a href="community.html" class="btn btn-outline">Go to Community</a>
+      </div>
+    </section>
+
+    <section id="reports" class="section-tight" style="padding-bottom:60px;">
+      <h2>Reports</h2>
+      <div class="card">
+        <h3>Marketplace demand by crop (demo data)</h3>
+        <div id="reportBars"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

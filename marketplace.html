@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marketplace — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="marketplace">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header flex-between flex-wrap gap-16">
+    <div>
+      <h1><span class="eyebrow-icon">🛒</span>Agriculture Marketplace</h1>
+      <p class="text-muted">Buy and sell seeds, fertilizers, tools and equipment.</p>
+    </div>
+    <div class="flex gap-12">
+      <button class="btn btn-outline" onclick="document.getElementById('addProductModal').classList.add('show')">+ Add Product</button>
+      <a href="cart.html" class="btn btn-primary" style="position:relative;">
+        🛒 Cart
+        <span id="cartCount" style="display:none;background:var(--wheat-500);color:var(--soil-900);border-radius:999px;font-size:0.75rem;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;margin-left:6px;">0</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="grid grid-2" style="gap:14px;">
+      <div class="form-group mb-0"><label for="categoryFilter">Category</label><select id="categoryFilter"></select></div>
+      <div class="form-group mb-0"><label for="productSearch">Search</label><input type="text" id="productSearch" placeholder="Search products…"></div>
+    </div>
+  </div>
+
+  <section class="section-tight">
+    <div class="grid grid-4" id="productGrid"></div>
+  </section>
+
+  <section class="section-tight" style="padding-bottom:60px;">
+    <h2>My Listed Products</h2>
+    <div class="card" id="myProductsList"></div>
+  </section>
+</div>
+
+<!-- Add Product Modal -->
+<div class="modal-overlay" id="addProductModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="document.getElementById('addProductModal').classList.remove('show')" aria-label="Close">✕</button>
+    <h2>Add Product</h2>
+    <form id="addProductForm">
+      <div class="form-group"><label for="prodName">Product Name</label><input type="text" id="prodName" required></div>
+      <div class="form-group">
+        <label for="prodCategory">Category</label>
+        <select id="prodCategory">
+          <option>Seeds</option><option>Fertilizers</option><option>Pesticides</option>
+          <option>Tools</option><option>Equipment</option><option>Organic Products</option>
+        </select>
+      </div>
+      <div class="grid grid-2" style="gap:16px;">
+        <div class="form-group"><label for="prodPrice">Price (₹)</label><input type="number" id="prodPrice" required></div>
+        <div class="form-group"><label for="prodQty">Quantity</label><input type="number" id="prodQty" value="1"></div>
+      </div>
+      <div class="form-group"><label for="prodDescription">Description</label><textarea id="prodDescription" rows="3"></textarea></div>
+      <button type="submit" class="btn btn-primary btn-block">Add Product</button>
+    </form>
+  </div>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/marketplace.js"></script>
+</body>
+</html>

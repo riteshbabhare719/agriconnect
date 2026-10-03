@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="dashboard">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="welcome-bar">
+    <div>
+      <h1>Good Morning, <span id="welcomeName">Farmer</span> 👋</h1>
+      <p>📍 <span id="welcomeLocation">Nagpur, Maharashtra</span></p>
+    </div>
+    <span class="location-chip" id="todayDate"></span>
+  </div>
+
+  <div class="grid grid-4" style="margin-top:24px;">
+    <div class="card summary-card"><div class="icon-box">🌦️</div><div id="summaryWeather"></div></div>
+    <div class="card summary-card"><div class="icon-box">🌾</div><div id="summaryCrops"></div></div>
+    <div class="card summary-card"><div class="icon-box">📈</div><div id="summaryMarket"></div></div>
+    <div class="card summary-card"><div class="icon-box">🚚</div><div id="summaryTransport"></div></div>
+  </div>
+
+  <section class="section-tight">
+    <h2>Quick Actions</h2>
+    <div class="grid grid-4">
+      <a href="crops.html" class="quick-action-btn"><span class="qa-icon">➕</span>Add Crop</a>
+      <a href="market.html" class="quick-action-btn"><span class="qa-icon">📈</span>Check Market Price</a>
+      <a href="weather.html" class="quick-action-btn"><span class="qa-icon">🌦️</span>Check Weather</a>
+      <a href="recommendation.html" class="quick-action-btn"><span class="qa-icon">🌱</span>Get Crop Recommendation</a>
+      <a href="transport.html" class="quick-action-btn"><span class="qa-icon">🚚</span>Find Transport</a>
+      <a href="ai-assistant.html" class="quick-action-btn"><span class="qa-icon">🤖</span>Ask AI Assistant</a>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="flex-between">
+      <h2>My Crops</h2>
+      <a href="crops.html" class="btn btn-outline btn-sm btn-inline">View All</a>
+    </div>
+    <div class="grid grid-4" id="myCropsPreview"></div>
+  </section>
+
+  <section class="section-tight" style="padding-bottom:60px;">
+    <h2>Today's Farming Tips</h2>
+    <div class="grid grid-2" id="farmingTips"></div>
+  </section>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+  document.getElementById('todayDate').textContent = new Date().toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' });
+</script>
+</body>
+</html>

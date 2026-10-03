@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crop Disease Detection — Smart AgriConnect</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body data-page="disease">
+
+<nav class="topnav" id="agri-nav"></nav>
+
+<div class="container">
+  <div class="page-header text-center">
+    <h1><span class="eyebrow-icon">🔍</span>Check Your Crop Health</h1>
+    <p class="text-muted">Upload a photo of the affected leaf or plant for a quick demo check.</p>
+  </div>
+
+  <div class="card" style="max-width:560px;margin:0 auto;">
+    <label for="diseaseImageInput" id="diseaseDropZone" style="display:block;border:2px dashed var(--border-soft);border-radius:16px;padding:40px 20px;text-align:center;cursor:pointer;transition:border-color .15s ease;">
+      <div id="diseasePreview">
+        <div style="font-size:2.6rem;">📷</div>
+        <p style="margin:10px 0 0;font-weight:600;">Upload Crop Image</p>
+        <p class="text-muted" style="font-size:0.9rem;">Click or drag a photo here (JPG, PNG)</p>
+      </div>
+    </label>
+    <input type="file" id="diseaseImageInput" accept="image/*" style="display:none;">
+    <button class="btn btn-primary btn-block" id="analyzeBtn" style="margin-top:16px;" disabled>Analyze Crop</button>
+    <p class="field-hint text-center" style="margin-top:10px;">This is a frontend demo — no real image analysis is performed.</p>
+  </div>
+
+  <div id="diseaseResult" style="max-width:560px;margin:20px auto 60px;display:none;"></div>
+</div>
+
+<footer class="site-footer" id="agri-footer"></footer>
+
+<script src="js/main.js"></script>
+<script src="js/disease.js"></script>
+</body>
+</html>

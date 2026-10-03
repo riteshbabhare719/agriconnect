@@ -1,0 +1,480 @@
+
+ 
+:root {
+  --nav-h: 68px;   /* keep in sync with .topnav-inner height */
+}
+ 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+ 
+/* Long unbroken strings (URLs, crop codes) must not widen the page */
+body, p, h1, h2, h3, h4, td, th, li, label, .card, .chat-msg {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+ 
+/* Any element must not be able to exceed its container */
+.container, .card, .app-main, .modal-box, .welcome-bar {
+  min-width: 0;
+}
+ 
+/* Grid and flex children default to min-width:auto, which causes
+   overflow when content is wider than the track. Reset it. */
+.grid > *, .flex > *, .flex-between > * {
+  min-width: 0;
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   1. NAVIGATION — single source of truth for nav height
+   ───────────────────────────────────────────────────────── */
+ 
+.topnav-inner { height: var(--nav-h); }
+ 
+/* These three used to hardcode 68px and broke on small screens */
+.auth-wrap  { min-height: calc(100dvh - var(--nav-h)); }
+.app-shell  { min-height: calc(100dvh - var(--nav-h)); }
+ 
+/* FIX: hamburger now appears at 1024px, not 767px.
+   Between 768-1024px the horizontal links were overflowing
+   and overlapping the brand. */
+/* Keep brand and links on one line; the logged-in menu has 10 items, so it
+   collapses to the hamburger at 1280px instead of wrapping onto two lines. */
+.brand { white-space: nowrap; flex-shrink: 0; }
+.nav-links a { white-space: nowrap; }
+ 
+@media (max-width: 1280px) {
+  .hamburger { display: block; }
+ 
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h);          /* was hardcoded 68px */
+    left: 0;
+    right: 0;
+    background: var(--leaf-800);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    z-index: 101;
+  }
+  .nav-links.open {
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;           /* long menus scroll instead of clipping */
+    padding: 8px 0;
+  }
+  .nav-links a {
+    padding: 14px 16px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav-links a:last-child { border-bottom: none; }
+  .nav-cta { background: var(--wheat-500) !important; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   2. TABLET LANDSCAPE (1025px - 1199px)
+   ───────────────────────────────────────────────────────── */
+ 
+@media (min-width: 1025px) and (max-width: 1199px) {
+  .container { padding: 0 20px; }
+  .grid-4 { grid-template-columns: repeat(3, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .footer-cols { grid-template-columns: 1fr 1fr 1fr; }
+  section { padding: 48px 0; }
+  .topnav-inner { padding: 0 20px; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   3. TABLET (768px - 1024px)
+   ───────────────────────────────────────────────────────── */
+ 
+@media (max-width: 1024px) {
+  h1 { font-size: clamp(1.5rem, 3vw, 2rem); }
+  h2 { font-size: clamp(1.3rem, 2.5vw, 1.75rem); }
+  h3 { font-size: 1.1rem; }
+ 
+  .container { padding: 0 18px; }
+  section { padding: 40px 0; }
+ 
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid { gap: 16px; }
+ 
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+  .card { padding: 20px; }
+ 
+  .topnav-inner { padding: 0 18px; }
+  .brand { font-size: 1.2rem; }
+ 
+  .btn { padding: 12px 20px; font-size: 0.95rem; min-height: 44px; }
+  .btn-sm { padding: 8px 14px; }
+ 
+  /* Admin sidebar becomes a horizontal scroll strip here, not at 860px,
+     so it matches the hamburger breakpoint and never sits beside content */
+  .app-shell { display: block; }
+  .app-sidebar {
+    display: flex;
+    overflow-x: auto;
+    gap: 4px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-soft);
+    padding: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .app-sidebar a { white-space: nowrap; margin-bottom: 0; flex-shrink: 0; }
+  .app-main { padding: 20px; }
+ 
+  .hero-actions { gap: 12px; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   4. MOBILE LANDSCAPE / LARGE MOBILE (<= 767px)
+   ───────────────────────────────────────────────────────── */
+ 
+@media (max-width: 767px) {
+  body { font-size: 16px; line-height: 1.5; }
+ 
+  h1 { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+  h2 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+  h3 { font-size: 1rem; }
+ 
+  .container { padding: 0 16px; }
+  section { padding: 28px 0; }
+  .section-tight { padding: 20px 0; }
+ 
+  .grid, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; gap: 14px; }
+  .card { padding: 16px; }
+  .card-hover:hover { transform: translateY(-1px); }
+ 
+  .btn { width: 100%; padding: 12px 18px; min-height: 42px; font-size: 0.9rem; }
+  .btn-inline { width: auto; }
+  .btn-sm { padding: 8px 12px; font-size: 0.85rem; min-height: 36px; }
+ 
+  /* Button rows must stack cleanly instead of squeezing side by side */
+  .flex.gap-12, .flex.gap-16 { flex-wrap: wrap; }
+ 
+  .topnav-inner { padding: 0 16px; }
+  .brand { font-size: 1.1rem; gap: 6px; }
+ 
+  .app-main { padding: 16px; }
+  .app-sidebar { padding: 8px; margin-bottom: 16px; }
+  .app-sidebar a { padding: 10px 12px; font-size: 0.9rem; }
+ 
+  /* ─────────────── Forms ─────────────── */
+  label { margin-bottom: 5px; font-size: 0.9rem; }
+  input, select, textarea {
+    font-size: 16px;            /* 16px minimum prevents iOS zoom-on-focus */
+    padding: 12px 14px;
+  }
+  .checkbox-row { gap: 8px; }
+ 
+  /* ─────────────── Dashboard ─────────────── */
+  .welcome-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 16px;
+    margin-top: 16px;
+    gap: 12px;
+  }
+  .welcome-bar h1 { font-size: 1.4rem; }
+  .welcome-bar .location-chip { align-self: flex-start; white-space: normal; }
+ 
+  .summary-card { gap: 12px; }
+  .summary-card .icon-box { width: 48px; height: 48px; font-size: 1.4rem; }
+  .summary-card .value { font-size: 1.2rem; }
+ 
+  /* ─────────────── Footer ─────────────── */
+  .footer-cols { grid-template-columns: 1fr; gap: 16px; }
+  .site-footer { padding: 32px 0 16px; margin-top: 40px; }
+ 
+  /* ─────────────── Modals ─────────────── */
+  .modal-overlay { padding: 12px; align-items: flex-start; }
+  .modal-box { max-width: 100%; padding: 20px; max-height: 90dvh; margin-top: 12px; }
+ 
+  /* ─────────────── Empty states / headers ─────────────── */
+  .empty-state { padding: 40px 16px; }
+  .empty-state .emoji { font-size: 2.2rem; margin-bottom: 10px; }
+  .page-header { padding: 24px 0 4px; }
+  .page-header .eyebrow-icon { font-size: 1.4rem; }
+  .breadcrumb { font-size: 0.85rem; }
+ 
+  /* ─────────────── Alerts & Toasts ─────────────── */
+  .alert { margin-bottom: 12px; padding: 12px 14px; }
+  .toast {
+    bottom: 16px; left: 16px; right: 16px;
+    transform: translateX(0) translateY(20px);
+    padding: 12px 16px; font-size: 0.9rem;
+    text-align: center;
+  }
+  .toast.show { transform: translateX(0) translateY(0); }
+ 
+  /* ─────────────── Hero ─────────────── */
+  .hero-actions { gap: 10px; }
+  .hero-actions .btn { width: 100%; }
+ 
+  /* ─────────────── Crop cards / tips ─────────────── */
+  .crop-card .crop-emoji { font-size: 1.8rem; }
+  .crop-card .crop-meta { font-size: 0.85rem; }
+  .tip-card { gap: 10px; }
+  .tip-card .tip-icon { font-size: 1.3rem; }
+ 
+  /* ─────────────── Utility gaps ─────────────── */
+  .gap-8 { gap: 6px; }
+  .gap-12 { gap: 10px; }
+  .gap-16 { gap: 12px; }
+  .flex-wrap-mobile { flex-wrap: wrap; }
+  .flex-col-mobile { flex-direction: column; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   5. TABLES — card-list swap, with a safe fallback
+   ───────────────────────────────────────────────────────── */
+ 
+/* Desktop: table visible, card list hidden */
+@media (min-width: 768px) {
+  .table-responsive table { display: table; }
+  .table-responsive .card-list { display: none; }
+}
+ 
+@media (max-width: 767px) {
+  /* FIX: only hide the table when a .card-list actually exists to
+     replace it. admin.html has no .card-list, so its tables used to
+     disappear completely on mobile. */
+  .table-responsive:has(.card-list) table { display: none; }
+  .table-responsive:has(.card-list) .card-list { display: flex; }
+ 
+  /* Fallback for tables with no card-list (and older browsers
+     without :has support) — scroll horizontally instead of squeezing */
+  .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .table-responsive table { min-width: 560px; }
+  .table-responsive th,
+  .table-responsive td { white-space: nowrap; }
+ 
+  .card-list { display: flex; flex-direction: column; gap: 12px; }
+  .card-list-item { display: block; padding: 12px; }
+  .card-list-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--border-soft);
+  }
+  .card-list-row:last-child { border-bottom: none; }
+  .card-list-label { font-weight: 600; font-size: 0.85rem; color: var(--text-muted); }
+  .card-list-value { font-weight: 500; color: var(--soil-900); text-align: right; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   6. MODAL CLOSE BUTTON — no more float overlap
+   ───────────────────────────────────────────────────────── */
+ 
+.modal-box { position: relative; }
+.modal-close {
+  float: none;                  /* FIX: float caused title overlap */
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  line-height: 1;
+}
+.modal-close:hover { background: var(--leaf-100); }
+/* Reserve space so long titles never run under the button */
+.modal-box > h2 { padding-right: 48px; }
+ 
+/* ─────────────────────────────────────────────────────────
+   7. CHAT (AI assistant) — no fixed height on mobile
+   ───────────────────────────────────────────────────────── */
+ 
+@media (max-width: 767px) {
+  .chat-window { height: auto; min-height: 320px; max-height: 55dvh; }
+  .chat-msg { max-width: 85%; }
+  .chat-input-row { padding: 12px; gap: 8px; }
+  .chat-input-row .btn { width: auto; flex-shrink: 0; }
+  .chat-suggestions { padding: 0 12px 12px; }
+  .chip-btn { font-size: 0.8rem; padding: 7px 12px; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   8. MOBILE (<= 480px)
+   ───────────────────────────────────────────────────────── */
+ 
+@media (max-width: 480px) {
+  :root { --nav-h: 60px; }     /* FIX: dropdown now follows this */
+ 
+  body { font-size: 15px; }
+ 
+  h1 { font-size: clamp(1.1rem, 5vw, 1.5rem); }
+  h2 { font-size: clamp(1rem, 4vw, 1.25rem); }
+  h3 { font-size: 0.95rem; }
+  h4 { font-size: 0.9rem; }
+ 
+  .container { padding: 0 14px; }
+  section { padding: 20px 0; }
+  .section-tight { padding: 16px 0; }
+ 
+  .btn { padding: 11px 16px; min-height: 44px; font-size: 0.85rem; }
+  .btn-sm { padding: 7px 10px; min-height: 36px; font-size: 0.75rem; }
+ 
+  .card { padding: 14px; }
+  .badge { font-size: 0.75rem; padding: 4px 10px; }
+ 
+  .topnav-inner { padding: 0 14px; }
+  .brand { font-size: 1rem; }
+  .nav-links a { padding: 12px 14px; font-size: 0.9rem; }
+ 
+  input, select, textarea { padding: 11px 12px; font-size: 16px; }
+  label { font-size: 0.85rem; }
+  .field-hint { font-size: 0.8rem; }
+ 
+  .welcome-bar { padding: 16px 14px; margin-top: 12px; }
+  .welcome-bar h1 { font-size: 1.2rem; }
+  .welcome-bar p { font-size: 0.85rem; }
+  .location-chip { font-size: 0.8rem !important; padding: 6px 12px !important; }
+ 
+  .summary-card .icon-box { width: 44px; height: 44px; font-size: 1.2rem; }
+  .summary-card .value { font-size: 1.1rem; }
+  .summary-card .label { font-size: 0.8rem; }
+ 
+  .quick-action-btn { padding: 16px 10px; font-size: 0.85rem; }
+  .quick-action-btn .qa-icon { font-size: 1.6rem; margin-bottom: 6px; }
+ 
+  .app-sidebar a { padding: 8px 10px; font-size: 0.8rem; }
+  .app-main { padding: 12px; }
+ 
+  .site-footer { font-size: 0.85rem; }
+ 
+  .alert { padding: 10px 12px; font-size: 0.85rem; margin-bottom: 10px; }
+  .toast { bottom: 12px; left: 12px; right: 12px; padding: 11px 14px; font-size: 0.85rem; }
+ 
+  .modal-box { padding: 16px; }
+  .modal-box > h2 { padding-right: 44px; }
+  .modal-close { font-size: 1.2rem; top: 10px; right: 10px; width: 36px; height: 36px; }
+ 
+  .empty-state { padding: 30px 12px; }
+  .empty-state .emoji { font-size: 2rem; }
+ 
+  .page-header { padding: 20px 0 2px; }
+  .page-header .eyebrow-icon { font-size: 1.2rem; margin-right: 6px; }
+  .breadcrumb { font-size: 0.8rem; }
+ 
+  .auth-form-side { padding: 16px 12px; }
+  .auth-card { max-width: 100%; }
+  .auth-card .logo-row { font-size: 1.1rem; margin-bottom: 6px; }
+  .auth-links-row { flex-direction: column; gap: 8px; font-size: 0.85rem; }
+  .auth-divider { font-size: 0.8rem; margin: 14px 0; }
+ 
+  .crop-card .crop-emoji { font-size: 1.6rem; }
+  .crop-card .progress-track { margin: 10px 0 2px; height: 6px; }
+  .tip-icon { font-size: 1.2rem; }
+ 
+  .gap-8 { gap: 4px; }
+  .gap-12 { gap: 8px; }
+  .gap-16 { gap: 10px; }
+  .hidden-mobile { display: none !important; }
+  .show-mobile { display: block !important; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   9. EXTRA SMALL DEVICES (<= 320px)
+   ───────────────────────────────────────────────────────── */
+ 
+@media (max-width: 320px) {
+  :root { --nav-h: 56px; }     /* FIX: dropdown now follows this */
+ 
+  body { font-size: 14px; }
+ 
+  h1 { font-size: 1.1rem; }
+  h2 { font-size: 1rem; }
+  h3 { font-size: 0.9rem; }
+ 
+  .container { padding: 0 12px; }
+  section { padding: 20px 0; }
+ 
+  /* min-height stays at 44px — tap targets should not shrink below
+     the accessibility minimum even on the smallest screens */
+  .btn { padding: 10px 12px; min-height: 44px; font-size: 0.8rem; }
+  .card { padding: 12px; }
+ 
+  .topnav-inner { padding: 0 12px; }
+  .brand { font-size: 0.95rem; gap: 4px; }
+ 
+  input, select, textarea { padding: 10px; font-size: 16px; }
+ 
+  .welcome-bar { padding: 14px 12px; }
+  .summary-card .icon-box { width: 40px; height: 40px; font-size: 1.1rem; }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   10. ORIENTATION — short landscape screens
+   ───────────────────────────────────────────────────────── */
+ 
+@media (orientation: landscape) and (max-height: 500px) {
+  section { padding: 20px 0; }
+  .card { padding: 12px; }
+  .btn { min-height: 40px; padding: 8px 14px; }
+  .welcome-bar { padding: 12px; }
+  .chat-window { max-height: 45dvh; min-height: 200px; }
+  .modal-box { max-height: 94dvh; }
+  .nav-links.open { max-height: calc(100dvh - var(--nav-h)); }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   11. MEDIA RESPONSIVENESS
+   ───────────────────────────────────────────────────────── */
+ 
+img { max-width: 100%; height: auto; display: block; }
+picture { display: block; }
+picture img { width: 100%; }
+svg { max-width: 100%; height: auto; }
+ 
+.video-container, .iframe-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;       /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+.video-container iframe, .iframe-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   12. MOTION PREFERENCES
+   ───────────────────────────────────────────────────────── */
+ 
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+ 
+/* ─────────────────────────────────────────────────────────
+   13. PRINT STYLES
+   ───────────────────────────────────────────────────────── */
+ 
+@media print {
+  .hamburger, .topnav, .site-footer, .btn, .nav-links, .modal-overlay { display: none; }
+  body { background: #fff; font-size: 12pt; overflow-x: visible; }
+  .container { max-width: 100%; padding: 0; }
+  .card { box-shadow: none; border: 1px solid #999; page-break-inside: avoid; }
+  section { page-break-inside: avoid; }
+  .table-responsive table { display: table !important; min-width: 0; }
+  .table-responsive .card-list { display: none !important; }
+}
